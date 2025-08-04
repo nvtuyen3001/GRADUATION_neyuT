@@ -270,15 +270,6 @@ const CeremonyPage = () => {
                 {graduationInfo.address}
               </p>
             </div>
-
-            <div className="mt-8">
-              <Link
-                to="/"
-                className="inline-block bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                ← Quay lại trang chủ
-              </Link>
-            </div>
           </div>
         </div>
       </div>

@@ -84,6 +84,7 @@ class GraduationInfo(BaseModel):
     time: str = "08:00"
     location: str = "Tầng 3 - Thư viện tòa A11"
     address: str = "Số 298 Đ. Cầu Diễn, Minh Khai, Bắc Từ Liêm, Hà Nội"
+    university_vietnamese: str = "Trường Đại Học Công Nghiệp Hà Nội"
 
 # Routes
 @api_router.get("/")

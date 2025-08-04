@@ -84,7 +84,7 @@ const HomePage = () => {
 
 // Personal Invitation Page Component
 const InvitationPage = () => {
-  const { friendId } = useParams();
+  const { friendSlug } = useParams();
   const navigate = useNavigate();
   const [friend, setFriend] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -92,7 +92,7 @@ const InvitationPage = () => {
   useEffect(() => {
     const fetchFriend = async () => {
       try {
-        const response = await axios.get(`${API}/friends/${friendId}`);
+        const response = await axios.get(`${API}/friends/${friendSlug}`);
         setFriend(response.data);
       } catch (error) {
         console.error('Error fetching friend:', error);
@@ -102,7 +102,7 @@ const InvitationPage = () => {
     };
 
     fetchFriend();
-  }, [friendId]);
+  }, [friendSlug]);
 
   if (loading) {
     return (
@@ -134,7 +134,7 @@ const InvitationPage = () => {
         </div>
 
         <button
-          onClick={() => navigate(`/ceremony/${friendId}`)}
+          onClick={() => navigate(`/ceremony/${friendSlug}`)}
           className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold text-2xl px-12 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
         >
           Tìm hiểu

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -6,10 +6,9 @@ import os
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Optional
 import uuid
 from datetime import datetime
-
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -25,32 +24,68 @@ app = FastAPI()
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
-
 # Define Models
-class StatusCheck(BaseModel):
+class Friend(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    client_name: str
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    name: str
+    created_at: datetime = Field(default_factory=datetime.utcnow)
 
-class StatusCheckCreate(BaseModel):
-    client_name: str
+class FriendCreate(BaseModel):
+    name: str
 
-# Add your routes to the router instead of directly to app
+class GraduationInfo(BaseModel):
+    graduate_name: str = "Nguyen Van Tuyen"
+    major: str = "Truyền thông đa phương tiện"
+    university: str = "FPT University"
+    date: str = "19/8/2025"
+    time: str = "08:00"
+    location: str = "Main Meeting Hall"
+    address: str = "Trung tâm Hội nghị Quốc gia, Cổng số 2, Phạm Hùng, Từ Liêm, Hà Nội"
+
+# Routes
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Graduation Invitation API"}
 
-@api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.dict()
-    status_obj = StatusCheck(**status_dict)
-    _ = await db.status_checks.insert_one(status_obj.dict())
-    return status_obj
+@api_router.post("/friends", response_model=Friend)
+async def create_friend(input: FriendCreate):
+    friend_dict = input.dict()
+    friend_obj = Friend(**friend_dict)
+    await db.friends.insert_one(friend_obj.dict())
+    return friend_obj
 
-@api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
-    status_checks = await db.status_checks.find().to_list(1000)
-    return [StatusCheck(**status_check) for status_check in status_checks]
+@api_router.get("/friends", response_model=List[Friend])
+async def get_friends():
+    friends = await db.friends.find().to_list(1000)
+    return [Friend(**friend) for friend in friends]
+
+@api_router.get("/friends/{friend_id}", response_model=Friend)
+async def get_friend(friend_id: str):
+    friend = await db.friends.find_one({"id": friend_id})
+    if not friend:
+        raise HTTPException(status_code=404, detail="Friend not found")
+    return Friend(**friend)
+
+@api_router.get("/graduation-info")
+async def get_graduation_info():
+    return GraduationInfo()
+
+@api_router.post("/init-data")
+async def init_sample_data():
+    # Clear existing data
+    await db.friends.delete_many({})
+    
+    # Add sample friends
+    sample_friends = [
+        {"name": "Ha Nguyen Tuan Kiet"},
+        {"name": "Vu Van Hau"}
+    ]
+    
+    for friend_data in sample_friends:
+        friend_obj = Friend(**friend_data)
+        await db.friends.insert_one(friend_obj.dict())
+    
+    return {"message": "Sample data initialized"}
 
 # Include the router in the main app
 app.include_router(api_router)

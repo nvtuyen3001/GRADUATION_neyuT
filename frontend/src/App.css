@@ -19,6 +19,15 @@
   background: linear-gradient(135deg, #fb923c 0%, #fed7aa 50%, #fef3c7 100%);
 }
 
+/* Green gradient backgrounds */
+.gradient-green {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 50%, #10b981 100%);
+}
+
+.gradient-emerald {
+  background: linear-gradient(135deg, #10b981 0%, #bbf7d0 50%, #dcfce7 100%);
+}
+
 /* Vietnamese font support */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

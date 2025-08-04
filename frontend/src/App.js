@@ -62,7 +62,7 @@ const HomePage = () => {
             {friends.map((friend) => (
               <Link
                 key={friend.id}
-                to={`/invite/${friend.id}`}
+                to={`/invite/${friend.slug}`}
                 className="block p-6 bg-gradient-to-r from-green-100 to-emerald-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-green-200 hover:border-green-300"
               >
                 <div className="flex items-center justify-between">

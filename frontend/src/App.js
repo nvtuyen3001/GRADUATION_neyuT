@@ -284,8 +284,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/invite/:friendId" element={<InvitationPage />} />
-          <Route path="/ceremony/:friendId" element={<CeremonyPage />} />
+          <Route path="/invite/:friendSlug" element={<InvitationPage />} />
+          <Route path="/ceremony/:friendSlug" element={<CeremonyPage />} />
         </Routes>
       </BrowserRouter>
     </div>

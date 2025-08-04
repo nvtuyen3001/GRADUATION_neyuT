@@ -106,22 +106,22 @@ const InvitationPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-200 to-orange-400">
-        <div className="text-2xl font-semibold text-orange-800">Đang tải...</div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-200 to-emerald-400">
+        <div className="text-2xl font-semibold text-green-800">Đang tải...</div>
       </div>
     );
   }
 
   if (!friend) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-200 to-orange-400">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-200 to-emerald-400">
         <div className="text-2xl font-semibold text-red-600">Không tìm thấy bạn bè!</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-200 to-orange-400 flex items-center justify-center py-8">
+    <div className="min-h-screen bg-gradient-to-br from-green-200 to-emerald-400 flex items-center justify-center py-8">
       <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-12 max-w-lg mx-auto text-center">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
@@ -129,25 +129,16 @@ const InvitationPage = () => {
           </h1>
           <div className="w-16 h-1 bg-red-500 mx-auto mb-6"></div>
           <p className="text-lg text-red-600 font-semibold leading-relaxed">
-            Bạn đã chọn ngày để đến dự lễ tốt nghiệp của tôi
+            Ngày mà cả thế giới phải chú ý đến
           </p>
         </div>
 
         <button
           onClick={() => navigate(`/ceremony/${friendId}`)}
-          className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold text-2xl px-12 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold text-2xl px-12 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
         >
-          Ngày
+          Tìm hiểu
         </button>
-
-        <div className="mt-8">
-          <Link
-            to="/"
-            className="text-orange-600 hover:text-orange-800 underline font-medium"
-          >
-            ← Quay lại trang chủ
-          </Link>
-        </div>
       </div>
     </div>
   );

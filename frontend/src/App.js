@@ -146,7 +146,7 @@ const InvitationPage = () => {
 
 // Detailed Ceremony Page Component
 const CeremonyPage = () => {
-  const { friendId } = useParams();
+  const { friendSlug } = useParams();
   const [friend, setFriend] = useState(null);
   const [graduationInfo, setGraduationInfo] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -155,7 +155,7 @@ const CeremonyPage = () => {
     const fetchData = async () => {
       try {
         const [friendResponse, graduationResponse] = await Promise.all([
-          axios.get(`${API}/friends/${friendId}`),
+          axios.get(`${API}/friends/${friendSlug}`),
           axios.get(`${API}/graduation-info`)
         ]);
         setFriend(friendResponse.data);
@@ -168,7 +168,7 @@ const CeremonyPage = () => {
     };
 
     fetchData();
-  }, [friendId]);
+  }, [friendSlug]);
 
   if (loading) {
     return (

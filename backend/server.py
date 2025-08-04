@@ -93,6 +93,7 @@ async def root():
 @api_router.post("/friends", response_model=Friend)
 async def create_friend(input: FriendCreate):
     friend_dict = input.dict()
+    friend_dict["slug"] = create_slug(friend_dict["name"])
     friend_obj = Friend(**friend_dict)
     await db.friends.insert_one(friend_obj.dict())
     return friend_obj

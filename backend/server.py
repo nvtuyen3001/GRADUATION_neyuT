@@ -119,7 +119,7 @@ async def init_sample_data():
     # Clear existing data
     await db.friends.delete_many({})
     
-    # Add sample friends with capitalized names
+    # Add sample friends with capitalized names and slugs
     sample_friends = [
         {"name": "HÀ NGUYỄN TUẤN KIỆT"},
         {"name": "VŨ VĂN HẬU"},
@@ -135,6 +135,7 @@ async def init_sample_data():
     ]
     
     for friend_data in sample_friends:
+        friend_data["slug"] = create_slug(friend_data["name"])
         friend_obj = Friend(**friend_data)
         await db.friends.insert_one(friend_obj.dict())
     

@@ -75,10 +75,19 @@ async def init_sample_data():
     # Clear existing data
     await db.friends.delete_many({})
     
-    # Add sample friends
+    # Add sample friends with capitalized names
     sample_friends = [
-        {"name": "Ha Nguyen Tuan Kiet"},
-        {"name": "Vu Van Hau"}
+        {"name": "HÀ NGUYỄN TUẤN KIỆT"},
+        {"name": "VŨ VĂN HẬU"},
+        {"name": "TRẦN THỊ PHƯƠNG LAN"},
+        {"name": "NGUYỄN THỊ HẠNH"},
+        {"name": "PHẠM HUYỀN DIỆU"},
+        {"name": "NGUYỄN THỊ KHUYÊN"},
+        {"name": "NGUYỄN THỊ PHƯƠNG"},
+        {"name": "NGUYỄN THỊ HÀ"},
+        {"name": "PHẠM VĂN ANH TÙNG"},
+        {"name": "NGUYỄN QUANG THẮNG"},
+        {"name": "NGUYỄN HỮU TUẤN"}
     ]
     
     for friend_data in sample_friends:

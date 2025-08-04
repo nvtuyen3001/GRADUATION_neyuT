@@ -35,12 +35,12 @@ class FriendCreate(BaseModel):
 
 class GraduationInfo(BaseModel):
     graduate_name: str = "Nguyen Van Tuyen"
-    major: str = "Truyền thông đa phương tiện"
-    university: str = "FPT University"
+    major: str = "Khoa học máy tính"
+    university: str = "Hanoi University of Industry"
     date: str = "19/8/2025"
     time: str = "08:00"
-    location: str = "Main Meeting Hall"
-    address: str = "Trung tâm Hội nghị Quốc gia, Cổng số 2, Phạm Hùng, Từ Liêm, Hà Nội"
+    location: str = "Tầng 3 - Thư viện tòa A11"
+    address: str = "Số 298 Đ. Cầu Diễn, Minh Khai, Bắc Từ Liêm, Hà Nội"
 
 # Routes
 @api_router.get("/")

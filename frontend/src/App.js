@@ -32,29 +32,29 @@ const HomePage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-200 to-orange-400">
-        <div className="text-2xl font-semibold text-orange-800">Đang tải...</div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-200 to-emerald-400">
+        <div className="text-2xl font-semibold text-green-800">Đang tải...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-200 to-orange-400 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-green-200 to-emerald-400 py-8">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-orange-800 mb-4">
+          <h1 className="text-5xl font-bold text-green-800 mb-4">
             LỄ TỐT NGHIỆP 2025
           </h1>
-          <p className="text-xl text-orange-700">
+          <p className="text-xl text-green-700">
             Nguyen Van Tuyen
           </p>
-          <p className="text-lg text-orange-600 mt-2">
+          <p className="text-lg text-green-600 mt-2">
             Mời các bạn tham dự lễ tốt nghiệp
           </p>
         </div>
 
         <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-orange-800 mb-8">
+          <h2 className="text-3xl font-bold text-center text-green-800 mb-8">
             Danh sách bạn bè
           </h2>
           
@@ -63,13 +63,13 @@ const HomePage = () => {
               <Link
                 key={friend.id}
                 to={`/invite/${friend.id}`}
-                className="block p-6 bg-gradient-to-r from-orange-100 to-yellow-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-orange-200 hover:border-orange-300"
+                className="block p-6 bg-gradient-to-r from-green-100 to-emerald-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-green-200 hover:border-green-300"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xl font-semibold text-orange-800">
+                  <span className="text-xl font-semibold text-green-800">
                     {friend.name}
                   </span>
-                  <span className="text-orange-600 font-medium">
+                  <span className="text-green-600 font-medium">
                     Nhấn để mở thiệp mời →
                   </span>
                 </div>

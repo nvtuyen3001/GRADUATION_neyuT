@@ -102,9 +102,9 @@ async def get_friends():
     friends = await db.friends.find().to_list(1000)
     return [Friend(**friend) for friend in friends]
 
-@api_router.get("/friends/{friend_id}", response_model=Friend)
-async def get_friend(friend_id: str):
-    friend = await db.friends.find_one({"id": friend_id})
+@api_router.get("/friends/{friend_slug}", response_model=Friend)
+async def get_friend_by_slug(friend_slug: str):
+    friend = await db.friends.find_one({"slug": friend_slug})
     if not friend:
         raise HTTPException(status_code=404, detail="Friend not found")
     return Friend(**friend)

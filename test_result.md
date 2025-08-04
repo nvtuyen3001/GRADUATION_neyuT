@@ -107,27 +107,33 @@ user_problem_statement: "Create a Vietnamese graduation invitation website with 
 backend:
   - task: "Friend Management API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         -working: "NA"
         -agent: "main"
         -comment: "Implemented Friend model, CRUD operations for friends, and graduation info endpoint. Added init-data endpoint to populate sample friends (Ha Nguyen Tuan Kiet, Vu Van Hau)"
+        -working: true
+        -agent: "testing"
+        -comment: "✅ ALL FRIEND MANAGEMENT TESTS PASSED: POST /api/init-data successfully initializes sample Vietnamese friends (Ha Nguyen Tuan Kiet, Vu Van Hau). GET /api/friends returns proper list with valid UUID IDs and Vietnamese names. GET /api/friends/{id} correctly retrieves individual friends and returns 404 for invalid IDs. POST /api/friends successfully creates new friends with Vietnamese names and persists data correctly. All endpoints handle Vietnamese text properly and generate valid UUIDs."
 
   - task: "Graduation Information API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         -working: "NA"
         -agent: "main"
         -comment: "Implemented graduation info endpoint with Vietnamese text support, graduate name 'Nguyen Van Tuyen', date '19/8/2025', time '08:00'"
+        -working: true
+        -agent: "testing"
+        -comment: "✅ GRADUATION INFO API PASSED: GET /api/graduation-info returns all required fields (graduate_name: 'Nguyen Van Tuyen', date: '19/8/2025', time: '08:00', university: 'FPT University'). Vietnamese text in major and address fields handled correctly. All ceremony details match requirements perfectly."
 
 frontend:
   - task: "Homepage with Friends List"

@@ -172,43 +172,43 @@ const CeremonyPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-400 to-yellow-200">
-        <div className="text-2xl font-semibold text-orange-800">Đang tải...</div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-400 to-emerald-200">
+        <div className="text-2xl font-semibold text-green-800">Đang tải...</div>
       </div>
     );
   }
 
   if (!friend || !graduationInfo) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-400 to-yellow-200">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-400 to-emerald-200">
         <div className="text-2xl font-semibold text-red-600">Không tìm thấy thông tin!</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-400 to-yellow-200 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-green-400 to-emerald-200 py-8">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="text-sm text-orange-800 font-medium mb-2">
-            FPT Education
+          <div className="text-sm text-green-800 font-medium mb-2">
+            HANOI UNIVERSITY OF INDUSTRY
           </div>
-          <div className="text-lg text-orange-800 font-bold mb-6">
-            FPT UNIVERSITY
+          <div className="text-lg text-green-800 font-bold mb-6">
+            HANOI UNIVERSITY OF INDUSTRY
           </div>
         </div>
 
         {/* Main Card */}
         <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden max-w-4xl mx-auto">
           {/* Hero Section */}
-          <div className="bg-gradient-to-r from-orange-400 to-yellow-300 p-8 text-center">
+          <div className="bg-gradient-to-r from-green-400 to-emerald-300 p-8 text-center">
             <h1 className="text-6xl font-bold text-white mb-4 tracking-wide">
               GRADUATION
             </h1>
             <h2 className="text-6xl font-bold text-white mb-4 tracking-wide">
               CEREMONY
-              <span className="text-4xl ml-4 text-yellow-200">2025</span>
+              <span className="text-4xl ml-4 text-green-200">2025</span>
             </h2>
             <p className="text-2xl text-white/90 italic font-light">
               Thread of Connection
@@ -221,7 +221,7 @@ const CeremonyPage = () => {
               <h3 className="text-2xl font-bold text-gray-800 mb-2">
                 TÂN CỬ NHÂN
               </h3>
-              <h2 className="text-4xl font-bold text-orange-800 mb-4">
+              <h2 className="text-4xl font-bold text-green-800 mb-4">
                 {graduationInfo.graduate_name.toUpperCase()}
               </h2>
             </div>
@@ -230,43 +230,43 @@ const CeremonyPage = () => {
               <h4 className="text-xl font-semibold text-gray-700 mb-2">
                 CHUYÊN NGÀNH
               </h4>
-              <p className="text-2xl text-orange-700 font-medium">
+              <p className="text-2xl text-green-700 font-medium">
                 {graduationInfo.major.toUpperCase()}
               </p>
             </div>
 
             {/* Personalized Message */}
-            <div className="bg-gradient-to-r from-orange-100 to-yellow-100 rounded-2xl p-6 mb-8">
-              <p className="text-xl font-semibold text-orange-800 italic">
+            <div className="bg-gradient-to-r from-green-100 to-emerald-100 rounded-2xl p-6 mb-8">
+              <p className="text-xl font-semibold text-green-800 italic">
                 This invitation is for: {friend.name}
               </p>
             </div>
 
             {/* Event Details */}
             <div className="grid md:grid-cols-2 gap-6 text-lg">
-              <div className="bg-orange-50 rounded-2xl p-6">
+              <div className="bg-green-50 rounded-2xl p-6">
                 <div className="flex items-center justify-center mb-3">
                   <span className="text-2xl mr-2">⏰</span>
-                  <span className="font-bold text-orange-800">Thời gian</span>
+                  <span className="font-bold text-green-800">Thời gian</span>
                 </div>
-                <p className="text-orange-700 font-medium">
+                <p className="text-green-700 font-medium">
                   {graduationInfo.time} - {graduationInfo.date}
                 </p>
               </div>
 
-              <div className="bg-yellow-50 rounded-2xl p-6">
+              <div className="bg-emerald-50 rounded-2xl p-6">
                 <div className="flex items-center justify-center mb-3">
                   <span className="text-2xl mr-2">📍</span>
-                  <span className="font-bold text-orange-800">Địa điểm</span>
+                  <span className="font-bold text-green-800">Địa điểm</span>
                 </div>
-                <p className="text-orange-700 font-medium">
+                <p className="text-green-700 font-medium">
                   {graduationInfo.location}
                 </p>
               </div>
             </div>
 
-            <div className="mt-6 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl p-6">
-              <p className="text-orange-700 font-medium leading-relaxed">
+            <div className="mt-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6">
+              <p className="text-green-700 font-medium leading-relaxed">
                 {graduationInfo.address}
               </p>
             </div>
@@ -274,7 +274,7 @@ const CeremonyPage = () => {
             <div className="mt-8">
               <Link
                 to="/"
-                className="inline-block bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="inline-block bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 ← Quay lại trang chủ
               </Link>

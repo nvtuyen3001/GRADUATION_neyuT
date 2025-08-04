@@ -266,8 +266,11 @@ const CeremonyPage = () => {
             </div>
 
             <div className="mt-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6">
-              <p className="text-green-700 font-medium leading-relaxed">
+              <p className="text-green-700 font-medium leading-relaxed mb-2">
                 {graduationInfo.address}
+              </p>
+              <p className="text-green-800 font-semibold text-lg">
+                {graduationInfo.university_vietnamese}
               </p>
             </div>
           </div>

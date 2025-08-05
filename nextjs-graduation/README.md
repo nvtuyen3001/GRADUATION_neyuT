@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Vietnamese Graduation Invitation Website
 
-## Getting Started
+A Vietnamese graduation invitation website built with Next.js, TypeScript, Tailwind CSS, and MongoDB.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 🎓 **Homepage**: Lists all friends with unique invitation links
+- 💌 **Personal Invitation Page**: Shows graduation date with Vietnamese messaging
+- 🎊 **Ceremony Details Page**: Displays full ceremony information personalized for each friend
+- 🇻🇳 **Vietnamese Language Support**: Full Vietnamese text support with proper slug generation
+- 📱 **Responsive Design**: Works on all device sizes
+- 🌈 **Beautiful Gradients**: Green to emerald color scheme
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Database**: MongoDB (MongoDB Atlas recommended for production)
+- **Deployment**: Optimized for Vercel
+
+## Quick Start
+
+1. **Clone and Install**:
+   ```bash
+   npm install
+   ```
+
+2. **Setup Environment**:
+   Copy `.env.example` to `.env.local` and configure:
+   ```env
+   MONGODB_URI=mongodb://localhost:27017  # For local development
+   DB_NAME=graduation_db
+   ```
+
+3. **Run Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+4. **Visit**: [http://localhost:3000](http://localhost:3000)
+
+## Deployment on Vercel
+
+### Prerequisites
+- MongoDB Atlas account (free tier available)
+- Vercel account
+
+### Steps
+
+1. **Setup MongoDB Atlas**:
+   - Create a free cluster at [MongoDB Atlas](https://mongodb.com/atlas)
+   - Create a database user
+   - Whitelist Vercel's IP addresses (or use 0.0.0.0/0 for all IPs)
+   - Get your connection string
+
+2. **Deploy to Vercel**:
+   ```bash
+   # Install Vercel CLI
+   npm i -g vercel
+
+   # Deploy
+   vercel
+   ```
+
+3. **Configure Environment Variables in Vercel**:
+   - Go to your project in Vercel Dashboard
+   - Navigate to Settings → Environment Variables
+   - Add:
+     ```
+     MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/
+     DB_NAME=graduation_db
+     ```
+
+4. **Redeploy**:
+   ```bash
+   vercel --prod
+   ```
+
+## API Endpoints
+
+- `GET /api/friends` - Get all friends
+- `POST /api/friends` - Create a new friend
+- `GET /api/friends/[slug]` - Get friend by slug
+- `GET /api/graduation-info` - Get graduation ceremony information
+- `POST /api/init-data` - Initialize sample Vietnamese friends data
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── api/                    # API routes
+│   │   ├── friends/
+│   │   ├── graduation-info/
+│   │   └── init-data/
+│   ├── invite/[friendSlug]/    # Personal invitation pages
+│   ├── ceremony/[friendSlug]/  # Ceremony detail pages
+│   └── page.tsx                # Homepage
+├── lib/
+│   ├── mongodb.ts              # MongoDB connection
+│   └── models.ts               # TypeScript interfaces and utilities
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features Included
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Vietnamese Text Processing**: Automatic slug generation for Vietnamese names
+- **Sample Data**: Pre-loaded with Vietnamese friend names
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Type Safety**: Full TypeScript implementation
+- **SEO Ready**: Next.js App Router with proper meta tags
+- **Serverless Optimized**: Ready for Vercel's edge functions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Customization
 
-## Learn More
+- **Graduation Info**: Edit in `/src/app/api/graduation-info/route.ts`
+- **Sample Friends**: Modify in `/src/app/api/init-data/route.ts`
+- **Styling**: Update Tailwind classes in component files
+- **Colors**: Change gradient colors in the components
 
-To learn more about Next.js, take a look at the following resources:
+## Performance
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- ✅ Optimized for Vercel's Edge Runtime
+- ✅ Automatic code splitting
+- ✅ MongoDB connection pooling for serverless
+- ✅ Static generation where possible
+- ✅ Image optimization ready
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License

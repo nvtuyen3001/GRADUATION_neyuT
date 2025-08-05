@@ -4,13 +4,15 @@ import clientPromise from '@/lib/mongodb';
 // GET /api/friends/[slug] - Get friend by slug
 export async function GET(
   req: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
+    
     const client = await clientPromise;
     const db = client.db(process.env.DB_NAME || 'graduation_db');
     
-    const friend = await db.collection('friends').findOne({ slug: params.slug });
+    const friend = await db.collection('friends').findOne({ slug });
     
     if (!friend) {
       return NextResponse.json({ error: 'Friend not found' }, { status: 404 });

@@ -5,11 +5,17 @@ import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { Friend } from "@/lib/models";
 
+interface PageProps {
+  params: Promise<{ friendSlug: string }>;
+}
+
 const InvitationPage = () => {
-  const { friendSlug } = useParams();
+  const params = useParams();
   const router = useRouter();
   const [friend, setFriend] = useState<Friend | null>(null);
   const [loading, setLoading] = useState(true);
+  
+  const friendSlug = params?.friendSlug as string;
 
   useEffect(() => {
     const fetchFriend = async () => {

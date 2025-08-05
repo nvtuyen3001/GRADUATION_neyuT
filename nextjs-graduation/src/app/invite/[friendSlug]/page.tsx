@@ -5,10 +5,6 @@ import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { Friend } from "@/lib/models";
 
-interface PageProps {
-  params: Promise<{ friendSlug: string }>;
-}
-
 const InvitationPage = () => {
   const params = useParams();
   const router = useRouter();

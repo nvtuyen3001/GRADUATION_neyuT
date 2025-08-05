@@ -6,10 +6,12 @@ import axios from "axios";
 import { Friend, GraduationInfo } from "@/lib/models";
 
 const CeremonyPage = () => {
-  const { friendSlug } = useParams();
+  const params = useParams();
   const [friend, setFriend] = useState<Friend | null>(null);
   const [graduationInfo, setGraduationInfo] = useState<GraduationInfo | null>(null);
   const [loading, setLoading] = useState(true);
+  
+  const friendSlug = params?.friendSlug as string;
 
   useEffect(() => {
     const fetchData = async () => {
